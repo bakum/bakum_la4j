@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" locale="ru">
+    <af:document title="Главная" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:table value="#{bindings.DivisionsView1.collectionModel}" var="row"
+                                  rows="#{bindings.DivisionsView1.rangeSize}"
+                                  emptyText="#{bindings.DivisionsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.DivisionsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.DivisionsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.DivisionsView1.rangeSize}"
+                                  filterModel="#{bindings.DivisionsView1Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.DivisionsView1Query.processQuery}" varStatus="vs" id="t1"
+                                  editingMode="clickToEdit">
+                            <af:column sortProperty="#{bindings.DivisionsView1.hints.Id.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.DivisionsView1.hints.Id.label}" id="c1">
+                                <af:inputText value="#{row.bindings.Id.inputValue}"
+                                              label="#{bindings.DivisionsView1.hints.Id.label}"
+                                              required="#{bindings.DivisionsView1.hints.Id.mandatory}"
+                                              columns="#{bindings.DivisionsView1.hints.Id.displayWidth}"
+                                              maximumLength="#{bindings.DivisionsView1.hints.Id.precision}"
+                                              shortDesc="#{bindings.DivisionsView1.hints.Id.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DivisionsView1.hints.Fullname.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.DivisionsView1.hints.Fullname.label}"
+                                       id="c2">
+                                <af:inputText value="#{row.bindings.Fullname.inputValue}"
+                                              label="#{bindings.DivisionsView1.hints.Fullname.label}"
+                                              required="#{bindings.DivisionsView1.hints.Fullname.mandatory}"
+                                              columns="#{bindings.DivisionsView1.hints.Fullname.displayWidth}"
+                                              maximumLength="#{bindings.DivisionsView1.hints.Fullname.precision}"
+                                              shortDesc="#{bindings.DivisionsView1.hints.Fullname.tooltip}" id="it2">
+                                    <f:validator binding="#{row.bindings.Fullname.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DivisionsView1.hints.UidId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.DivisionsView1.hints.UidId.label}"
+                                       id="c3">
+                                <af:inputText value="#{row.bindings.UidId.inputValue}"
+                                              label="#{bindings.DivisionsView1.hints.UidId.label}"
+                                              required="#{bindings.DivisionsView1.hints.UidId.mandatory}"
+                                              columns="#{bindings.DivisionsView1.hints.UidId.displayWidth}"
+                                              maximumLength="#{bindings.DivisionsView1.hints.UidId.precision}"
+                                              shortDesc="#{bindings.DivisionsView1.hints.UidId.tooltip}" id="it3">
+                                    <f:validator binding="#{row.bindings.UidId.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

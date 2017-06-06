@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="homePageDef"
+                Package="net.bakum.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DivisionsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DivisionsView1Iterator"/>
+    <searchRegion Binds="DivisionsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DivisionsView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DivisionsView1Iterator" id="DivisionsView1">
+      <nodeDefinition DefName="net.bakum.vo.DivisionsView" Name="DivisionsView10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Fullname"/>
+          <Item Value="UidId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

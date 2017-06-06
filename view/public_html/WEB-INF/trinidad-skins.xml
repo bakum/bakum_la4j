@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>bakum.desktop</id>
+    <family>bakum</family>
+    <extends>alta-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/bakum/bakum.css</style-sheet-name>
+    <bundle-name>net.bakum.view.skinBundle</bundle-name>
+  </skin>
+</skins>
