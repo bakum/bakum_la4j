@@ -13,19 +13,18 @@ import org.la4j.vector.DenseVector;
 
 
 public class AccountingLayer {
-    public AccountingLayer() {
-        super();
-        InitializeLayer();
-    }
-
+    
     public AccountingLayer(Date date, String name) {
         super();
-        InitializeLayer();
+        //InitializeLayer();
         this.date = date;
         this.name = name;
+        uid = UUID.randomUUID()
+                  .toString()
+                  .replaceAll("-", "");
     }
 
-    protected OperationCenter pc1;
+    /*protected OperationCenter pc1;
     protected OperationCenter pc2;
     protected OperationCenter pc3;
     protected ProductionCenter cc23;
@@ -45,23 +44,21 @@ public class AccountingLayer {
     protected CostFlow cc23_26;
     protected CostFlow cc26_23;
     protected CostFlow cc23_24;
-    protected CostFlow cc91_23;
+    protected CostFlow cc91_23; */
     private Date date;
     private String name;
     private String uid;
     private List<CostFlow> listFlow = new ArrayList<CostFlow>();
     private List<CostCenter> listCenters = new ArrayList<CostCenter>();
 
-    private double t_prod; //Тариф производства продукции
-    private double t12; //Тариф материалов в производстве
+    /*private double t_prod; //Тариф производства продукции
+    private double t12; //Тариф материалов в производстве (средний)
     private double t42; //Тариф готовой продукции в производстве
     private double t52; //Тариф полуфабрикатов в производстве
+    */
+    /*protected void InitializeLayer() {
 
-    protected void InitializeLayer() {
-
-        uid = UUID.randomUUID()
-                  .toString()
-                  .replaceAll("-", "");
+        
         pc1 = new OperationCenter("pc1");
         pc2 = new OperationCenter("pc2");
         pc3 = new OperationCenter("pc3");
@@ -77,7 +74,7 @@ public class AccountingLayer {
         listCenters.add(cc25);
         fail24 = new ProduceCenter("24");
 
-        pc1_20 = new CostFlow("PC1");
+         pc1_20 = new CostFlow("PC1");
         pc1_20.setSource(pc1);
         pc1_20.setRecipient(cc20);
         listFlow.add(pc1_20);
@@ -130,8 +127,12 @@ public class AccountingLayer {
         cc91_23 = new CostFlow("E91_23");
         cc91_23.setSource(cc91);
         cc91_23.setRecipient(cc23);
-        listFlow.add(cc91_23);
-    }
+        listFlow.add(cc91_23); 
+    }*/
+    
+    public void addCostFlow(CostFlow cf) {
+            listFlow.add(cf);
+        }
 
     public Matrix retrieveCoefficients() {
         double array[][] = new double[][] { { 1.0, 0.0, 0.0 }, { 0.0, 5.0, 0.0 }, { 0.0, 0.0, 9.0 } };
@@ -175,7 +176,7 @@ public class AccountingLayer {
         return list;
     }
 
-    public void setPc1(OperationCenter pc1) {
+    /* public void setPc1(OperationCenter pc1) {
         this.pc1 = pc1;
     }
 
@@ -333,7 +334,7 @@ public class AccountingLayer {
 
     public CostFlow getCc91_23() {
         return cc91_23;
-    }
+    } */
 
     public void setDate(Date date) {
         this.date = date;
@@ -359,7 +360,7 @@ public class AccountingLayer {
         return uid;
     }
 
-    public double getT_prod() {
+    /* public double getT_prod() {
         return t_prod;
     }
 
@@ -373,5 +374,13 @@ public class AccountingLayer {
 
     public double getT52() {
         return t52;
+    } */
+
+    public List<CostFlow> getListFlow() {
+        return listFlow;
+    }
+
+    public List<CostCenter> getListCenters() {
+        return listCenters;
     }
 }
