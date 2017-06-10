@@ -10,7 +10,8 @@ public class CostCenter {
         this.wend = 0.0;
         this.q_wbeg = 0.0;
         this.q_wend = 0.0;
-        this.uid = UUID.randomUUID().toString().replaceAll("-", "");
+        //this.uid = UUID.randomUUID().toString().replaceAll("-", "");
+        this.sdc = SDC.QUANTITY;
     }
     protected String name; //Имя центра затрвт
     protected SDC sdc; //Схема распределения затрат

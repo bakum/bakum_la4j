@@ -5,9 +5,9 @@ public class Summa {
         super();
         this.sum = 0.0;
         this.sumBase = 0.0;
-        this.currency = Currency.UAH;
+        /*         this.currency = Currency.UAH;
         this.baseCurrency = Currency.UAH;
-        this.rate = 1.0;
+        this.rate = 1.0; */
     }
     
     public Summa(double summa, Currency val) {
